@@ -1,0 +1,20 @@
+psql -h localhost -d project_users -U postgres -W
+\list \l
+\c blog
+\dt
+
+CREATE DATABASE blog;
+\c blog
+\dt
+
+CREATE TABLE blogs (
+  	id SERIAL PRIMARY KEY,
+  	title varchar(50) NOT NULL,
+  	content text NOT NULL,
+  	category varchar(50) NOT NULL,
+  	tags text NOT NULL,
+  	created_at bigint NOT NULL,
+  	updated_at bigint
+);
+
+INSERT INTO blogs (id,title,content,category,tags,created_at,updated_at) VALUES (1,'My Updated Blog Post','This is the updated content of my first blog post.','Technology','Tech,Programming',1729640885546,NULL);
